@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonkeyFinder", "MonkeyFinder\MonkeyFinder.csproj", "{55C889B2-9A8A-4518-907B-A7016B2B4B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonkeyFinder", "MonkeyFinder\MonkeyFinder.csproj", "{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55C889B2-9A8A-4518-907B-A7016B2B4B3E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60AEB8D-64F0-40BF-AE36-A27BA3DD2A4C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
