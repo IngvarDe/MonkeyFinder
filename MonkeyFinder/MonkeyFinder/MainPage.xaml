@@ -42,7 +42,7 @@
         <Button Text="Click Me!!!" FontSize="50"></Button>
         <Button Text="Click Me!!!" FontSize="50"></Button>
     </VerticalStackLayout>-->
-    <CollectionView>
+    <CollectionView> <!--siia saab lisada HeightRequesti-->
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type model:Monkey}">
                 <model:Monkey
@@ -57,6 +57,9 @@
                     Name="Red-shanked douc"
                     Image="https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/douc.jpg"
                     Location="Vietnam" />
+                <!--kui lisada ahve juurde, siis mobiilivaatesse 
+                tekib automaatselt rullimismenüü-->
+                
             </x:Array>
         </CollectionView.ItemsSource>
         <CollectionView.ItemTemplate>
@@ -66,19 +69,19 @@
                            HeightRequest="100"
                            WidthRequest="100"
                            Aspect="AspectFill"/>
-                    <Label>
+                    <!--saab ka niimoodi teha-->
+                    <!--<Label>
                         <Label.Text>
                             <MultiBinding StringFormat="{}{0} | {1}">
                                 <Binding Path="Name"/>
                                 <Binding Path="Location"/>
                             </MultiBinding>
                         </Label.Text>
-                    </Label>
-                    
-                    <!--<VerticalStackLayout Padding="10" Spacing="4" VerticalOptions="Center">
+                    </Label>-->
+                    <VerticalStackLayout Padding="10" Spacing="4" VerticalOptions="Center">
                         <Label Text="{Binding Name}" FontSize="24"/>
                         <Label Text="{Binding Location}" FontSize="10"/>
-                    </VerticalStackLayout>-->
+                    </VerticalStackLayout>
                 </HorizontalStackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
