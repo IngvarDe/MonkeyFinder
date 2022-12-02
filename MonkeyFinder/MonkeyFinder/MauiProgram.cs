@@ -20,6 +20,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MonkeysViewModel>();
 		builder.Services.AddSingleton<MainPage>();
 
-		return builder.Build();
+        //https://www.youtube.com/watch?v=DuNLR_NJv8U&t=3042s 1.55.45
+
+        return builder.Build();
 	}
 }
