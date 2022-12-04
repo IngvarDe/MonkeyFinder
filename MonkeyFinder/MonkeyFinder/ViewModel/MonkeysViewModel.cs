@@ -25,7 +25,7 @@ namespace MonkeyFinder.ViewModel
         }
 
         [RelayCommand]
-        async Task GoToDetalis(Monkey monkey)
+        async Task GoToDetalisAsync(Monkey monkey)
         {
             if (monkey is null)
             {
@@ -48,7 +48,7 @@ namespace MonkeyFinder.ViewModel
             try
             {
                 IsBusy = true;
-                var monkeys = await monkeyService.Getmonkeys();
+                var monkeys = await monkeyService.GetMonkeys();
 
                 if ( Monkeys.Count != 0)
                     Monkeys.Clear();

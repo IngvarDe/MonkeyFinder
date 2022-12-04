@@ -401,6 +401,10 @@
         <Setter Property="FontSize" Value="16"/>
     </Style>
 
+    <Style x:Key="SmallLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
     <Style x:Key="ButtonOutline" TargetType="Button">
         <Setter Property="Background" Value="{StaticResource LightBackground}"/>
         <Setter Property="TextColor" Value="{StaticResource Primary}"/>
