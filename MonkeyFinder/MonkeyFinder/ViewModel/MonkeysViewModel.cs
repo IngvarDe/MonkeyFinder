@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using MonkeyFinder.Services;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
+using MonkeyFinder.View;
 
 namespace MonkeyFinder.ViewModel
 {
@@ -21,6 +22,21 @@ namespace MonkeyFinder.ViewModel
         {
             Title = "Monkey Finder";
             this.monkeyService = monkeyService;
+        }
+
+        [RelayCommand]
+        async Task GoToDetalis(Monkey monkey)
+        {
+            if (monkey is null)
+            {
+                return;
+            }
+
+            await Shell.Current.GoToAsync($"{nameof(DetailsPage)}?id={monkey.Name}", true,
+                new Dictionary<string, object>
+                {
+                    {"Monkey", monkey}
+                });
         }
 
 

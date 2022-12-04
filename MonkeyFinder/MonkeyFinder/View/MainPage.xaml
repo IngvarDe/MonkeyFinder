@@ -26,6 +26,12 @@
                         <Frame HeightRequest="125"
                                Padding="0"
                                Style="{StaticResource CardView}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                                                        AncestorType={x:Type viewmodel:MonkeysViewModel}},
+                                                                        Path=GoToDetalisAsync}"
+                                                                        CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
                             <Grid Padding="0"
                                   ColumnDefinitions="125, *">
 

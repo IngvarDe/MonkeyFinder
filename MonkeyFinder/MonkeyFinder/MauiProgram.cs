@@ -1,4 +1,5 @@
 ﻿using MonkeyFinder.Services;
+using MonkeyFinder.View;
 using MonkeyFinder.ViewModel;
 
 namespace MonkeyFinder;
@@ -17,10 +18,14 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<MonkeyService>();
-		builder.Services.AddSingleton<MonkeysViewModel>();
-		builder.Services.AddSingleton<MainPage>();
 
-        //https://www.youtube.com/watch?v=DuNLR_NJv8U&t=3042s 1.55.45
+		builder.Services.AddSingleton<MonkeysViewModel>();
+		builder.Services.AddTransient<MonkeyDetailsViewModel>();
+
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<DetailsPage>();
+
+        //https://www.youtube.com/watch?v=DuNLR_NJv8U&t=3042s 
 
         return builder.Build();
 	}
