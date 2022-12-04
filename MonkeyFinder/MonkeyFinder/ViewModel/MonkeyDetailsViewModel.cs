@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MonkeyFinder.Models;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,18 @@ namespace MonkeyFinder.ViewModel
     [QueryProperty("Monkey", "Monkey")]
     public partial class MonkeyDetailsViewModel : BaseViewModel
     {
-        public MonkeyDetailsViewModel() 
-        { 
-            
+        public MonkeyDetailsViewModel()
+        {
+
         }
 
         [ObservableProperty]
         Monkey monkey;
+
+        [RelayCommand]
+        async Task GoBackAsync()
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

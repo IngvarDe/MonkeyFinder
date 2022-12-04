@@ -25,7 +25,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddTransient<DetailsPage>();
 
-        //https://www.youtube.com/watch?v=DuNLR_NJv8U&t=3042s 2.44
+        //https://www.youtube.com/watch?v=DuNLR_NJv8U&t=3042s 2.58
 
         return builder.Build();
 	}
