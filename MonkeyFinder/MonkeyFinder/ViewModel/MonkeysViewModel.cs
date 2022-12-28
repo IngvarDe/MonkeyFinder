@@ -4,6 +4,7 @@ using MonkeyFinder.Services;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
 using MonkeyFinder.View;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MonkeyFinder.ViewModel
 {
@@ -30,6 +31,8 @@ namespace MonkeyFinder.ViewModel
             this.geolocation = geolocation;
         }
 
+        [ObservableProperty]
+        bool isRefreshing;
 
         [RelayCommand]
         async Task GetClosestMonkeyAsync()
@@ -95,6 +98,8 @@ namespace MonkeyFinder.ViewModel
         [RelayCommand]
         async Task GetMonkeysAsync()
         {
+            IsRefreshing = false;
+
             if (IsBusy)
                 return;
             try
@@ -130,6 +135,7 @@ namespace MonkeyFinder.ViewModel
             finally
             {
                 IsBusy = false;
+                IsRefreshing = false;
             }
         }
     }

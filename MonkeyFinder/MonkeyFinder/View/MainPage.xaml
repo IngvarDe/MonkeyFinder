@@ -13,50 +13,80 @@
     Kui panen *,*,Auto, siis auto t'ehndab,
     et tee viimane veerg nii suureks, kui vaja, 
     aga esimesed kaks jaga v]rdselt-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="REFRESH"/>
+    </ContentPage.ToolbarItems>
+    
+    
     <Grid ColumnDefinitions="*,*"
           ColumnSpacing="5"
           RowDefinitions="*, Auto"
           RowSpacing="0">
 
-        <CollectionView BackgroundColor="Transparent"
+        <RefreshView Grid.ColumnSpan="2"
+                     Command="{Binding GetMonkeysCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView BackgroundColor="Transparent"
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
-                        SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Monkey">
-                    <Grid Padding="10">
-                        <Frame HeightRequest="125"
+                        SelectionMode="None"
+                        <!--EmptyView="EMPTY">Siin saab sisestada teksti-->
+                
+                <CollectionView.EmptyView>
+                    <StackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="100"
+                                 HeightRequest="200">
+                        <Image Source="dotnet_bot.png"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Aspect="AspectFill"/>
+                        <!--Sellega saab pilte panna-->
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                
+                        <!--<CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                             Span="{OnPlatform Desktop = 1, Default = 3}"/>
+                        </CollectionView.ItemsLayout>-->
+                <!--Selle kommitud koodiga saad ahvide layouti muuta-->
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Monkey">
+                        <Grid Padding="10">
+                            <Frame HeightRequest="125"
                                Padding="0"
                                Style="{StaticResource CardView}">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" 
                                                       Command="{Binding Source={RelativeSource 
                                                                         AncestorType={x:Type viewmodel:MonkeysViewModel}},
                                                                         Path=GoToDetalisCommand}"/>
-                            </Frame.GestureRecognizers>
-                            <Grid Padding="0"
+                                </Frame.GestureRecognizers>
+                                <Grid Padding="0"
                                   ColumnDefinitions="125, *">
 
-                                <Image Aspect="AspectFill"
+                                    <Image Aspect="AspectFill"
                                    Source="{Binding Image}"
                                    WidthRequest="125"
                                    HeightRequest="125"/>
 
-                                <VerticalStackLayout Grid.Column="1"
+                                    <VerticalStackLayout Grid.Column="1"
                                                      Padding="10"
                                                      VerticalOptions="Center">
-                                    <Label Text="{Binding Name}"
+                                        <Label Text="{Binding Name}"
                                            Style="{StaticResource LargeLabel}"/>
-                                    <Label Text="{Binding Location}"
+                                        <Label Text="{Binding Location}"
                                            Style="{StaticResource MediumLabel}"/>
-                                </VerticalStackLayout>
-                            </Grid>
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-                
-        </CollectionView>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
 
         <Button
             Grid.Row="1"
@@ -83,18 +113,18 @@
                            VerticalOptions="CenterAndExpand"
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
-        
-        
+
+
     </Grid>
-    
-    
+
+
     <!--<ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">-->
 
-            <!--<Image
+    <!--<Image
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
@@ -113,7 +143,7 @@
                 FontSize="18"
                 HorizontalOptions="Center" />-->
 
-            <!--<Button
+    <!--<Button
                 x:Name="CounterBtn"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
@@ -126,7 +156,9 @@
         <Button Text="Click Me!!!" FontSize="50"></Button>
         <Button Text="Click Me!!!" FontSize="50"></Button>
     </VerticalStackLayout>-->
-    <!--<CollectionView> --><!--siia saab lisada HeightRequesti--><!--
+    <!--<CollectionView> -->
+    <!--siia saab lisada HeightRequesti-->
+    <!--
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type model:Monkey}">
                 <model:Monkey
@@ -141,8 +173,10 @@
                     Name="Red-shanked douc"
                     Image="https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/douc.jpg"
                     Location="Vietnam" />
-                --><!--kui lisada ahve juurde, siis mobiilivaatesse 
-                tekib automaatselt rullimismenüü--><!--
+                -->
+    <!--kui lisada ahve juurde, siis mobiilivaatesse 
+                tekib automaatselt rullimismenüü-->
+    <!--
                 
             </x:Array>
         </CollectionView.ItemsSource>
@@ -153,15 +187,17 @@
                            HeightRequest="100"
                            WidthRequest="100"
                            Aspect="AspectFill"/>
-                    --><!--saab ka niimoodi teha-->
-                    <!--<Label>
+                    -->
+    <!--saab ka niimoodi teha-->
+    <!--<Label>
                         <Label.Text>
                             <MultiBinding StringFormat="{}{0} | {1}">
                                 <Binding Path="Name"/>
                                 <Binding Path="Location"/>
                             </MultiBinding>
                         </Label.Text>
-                    </Label>--><!--
+                    </Label>-->
+    <!--
                     <VerticalStackLayout Padding="10" Spacing="4" VerticalOptions="Center">
                         <Label Text="{Binding Name}" FontSize="24"/>
                         <Label Text="{Binding Location}" FontSize="10"/>
@@ -171,5 +207,5 @@
         </CollectionView.ItemTemplate>
         
     </CollectionView>-->
-    
+
 </ContentPage>
