@@ -29,8 +29,8 @@
             <CollectionView BackgroundColor="Transparent"
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
-                        SelectionMode="None"
-                        <!--EmptyView="EMPTY">Siin saab sisestada teksti-->
+                        SelectionMode="None">
+                <!--EmptyView="EMPTY">Siin saab sisestada teksti-->
                 
                 <CollectionView.EmptyView>
                     <StackLayout VerticalOptions="Center"
